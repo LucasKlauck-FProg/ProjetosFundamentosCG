@@ -1,0 +1,36 @@
+/******************************************************************************
+O lojista gostou tanto do seu programa anterior que encomendou outro. 
+Dessa vez ele quer que você calcule quanto cada cliente gastou na loja apenas informando o número de camisetas, 
+calças e cintos comprados. As camisetas custam R$ 25,00, as calças cem reais e os cintos 40 reais. 
+Some o valor da compra e ao final dê um desconto de 10 por cento sobre o total. 
+Exiba na tela o valor do desconto e o valor da compra.
+*******************************************************************************/
+#include <stdio.h>
+
+int main()
+{
+   int quant_camisetas, quant_calcas, quant_cintos;
+   float valor_total, valor_com_desconto;
+   float preco_camiseta = 25.0, preco_calca = 100.0, preco_cinto = 40.0;
+   float desconto = 0.10;
+    
+    printf("Insira a quantidade de camisetas compradas: ");
+    scanf("%d", &quant_camisetas);
+    
+    printf("Insira a quantidade de calcas compradas: ");
+    scanf("%d", &quant_calcas);
+    
+    printf("Insira a quantidade de cintos comprados: ");
+    scanf("%d", &quant_cintos);
+    
+    
+    valor_total = (quant_camisetas * preco_camiseta) + (quant_calcas * preco_calca) + (quant_cintos * preco_cinto);
+    
+    valor_com_desconto = valor_total - (valor_total * desconto);
+    
+    printf("O valor total é: R$ %.2f\n", valor_total);
+    printf("O valor do desconto é: R$ %.2f\n", valor_total * desconto);
+    printf("O valor da compra com desconto é: R$ %.2f\n", valor_com_desconto);
+   
+    return 0;
+}
