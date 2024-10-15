@@ -1,0 +1,24 @@
+/******************************************************************************
+ Um motorista deseja encher o tanque do seu carro com gasolina.
+ Escreva um algoritmo para ler o preço do litro da gasolina e o valor que o motorista tem disponível para abastecer.
+ Calcule quantos litros ele conseguiu colocar no tanque e exiba na tela
+*******************************************************************************/
+
+#include <stdio.h>
+
+int main() {
+	float preco_litro, valor_disponivel, litros_abastecidos;
+
+	printf("Insira o preço da gasolina: R$ ");
+	scanf("%f", &preco_litro);
+
+	printf("Insira o valor disponível para abastecer: R$ ");
+	scanf("%f", &valor_disponivel);
+
+	litros_abastecidos = valor_disponivel / preco_litro;
+
+	printf("Você conseguiu colocar %.2f litros de gasolina no tanque.\n :", litros_abastecidos);
+
+	return 0;
+}
+
