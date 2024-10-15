@@ -1,0 +1,88 @@
+/******************************************************************************
+Faça um conversor de câmbio de reais/dólar/euro. 
+O usuário deve informar inicialmente a cotação de cada moeda em relação ao real. 
+Depois apresente o seguinte menu: 
+1) Converter de Real para Euro 2) Converter de Real para Dólar 3) Converter de Euro para Dólar 
+4) Converter de Euro para Real 5) Converter de Dólar para Euro 6) Converter de Dólar para Real 
+Leia o valor a ser convertido na moeda de origem e imprima na tela a quantidade na moeda destino. 
+*******************************************************************************/
+#include <stdio.h>
+
+int main() {
+    float cotacao_euro, cotacao_dolar, valor, convercao;
+    int opcao;
+
+    printf("Informe a cotação do Euro em relação ao Real: ");
+    scanf("%f", &cotacao_euro);
+
+    printf("Informe a cotação do Dólar em relação ao Real: ");
+    scanf("%f", &cotacao_dolar);
+
+    printf("\nEscolha uma opção de conversão:\n");
+    printf("1) Converter de Real para Euro\n");
+    printf("2) Converter de Real para Dólar\n");
+    printf("3) Converter de Euro para Dólar\n");
+    printf("4) Converter de Euro para Real\n");
+    printf("5) Converter de Dólar para Euro\n");
+    printf("6) Converter de Dólar para Real\n");
+    printf("Opção: ");
+    scanf("%d", &opcao);
+
+    switch (opcao) {
+        
+        case 1:
+            printf("Digite o valor em Reais: R$ ");
+            scanf("%f", &valor);
+            convercao = valor / cotacao_euro;
+            printf("Valor convertido: € %.2f\n", convercao);
+            break;
+            
+        case 2:
+            printf("Digite o valor em Reais: R$ ");
+            scanf("%f", &valor);
+            convercao = valor / cotacao_dolar;
+            printf("Valor convertido: $ %.2f\n", convercao);
+            break;
+            
+        case 3:
+            printf("Digite o valor em Euros: € ");
+            scanf("%f", &valor);
+            convercao = valor * (cotacao_euro / cotacao_dolar);
+            printf("Valor convertido: $ %.2f\n", convercao);
+            break;
+            
+        case 4:
+            printf("Digite o valor em Euros: € ");
+            scanf("%f", &valor);
+            convercao = valor * cotacao_euro;
+            printf("Valor convertido: R$ %.2f\n", convercao);
+            break;
+            
+        case 5:
+            printf("Digite o valor em Dólares: $ ");
+            scanf("%f", &valor);
+            convercao = valor * (cotacao_dolar / cotacao_euro);
+            printf("Valor convertido: € %.2f\n", convercao);
+            break;
+            
+        case 6:
+            printf("Digite o valor em Dólares: $ ");
+            scanf("%f", &valor);
+            convercao = valor * cotacao_dolar;
+            printf("Valor convertido: R$ %.2f\n", convercao);
+            break;
+            
+        default:
+            printf("Opção inválida!\n");
+    }
+
+    return 0;
+}
+
+
+
+
+
+
+
+
