@@ -1,0 +1,45 @@
+/******************************************************************************
+Brincadeira do PAR ou ÍMPAR. Pergunte para o usuário se ele aposta em PAR ou ÍMPAR.
+Depois disso, peça para ele digitar um número de 0 a 5 (como se fosse mostrar os dedos da mão.
+Sorteie um número de 0 a 5 e some com o que o usuário digitou.
+Se o usuário escolheu PAR e o valor da soma for par OU se ele escolheu ÍMPAR e o valor da soma é ímpar,
+diga que ele venceu. Senão, diga que o programa venceu 
+*******************************************************************************/
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    
+    int escolha_usuario, numero_usuario, numero_computador, soma;
+    char escolha_par_impar;
+
+    srand(time(NULL));
+
+    printf("Você escolhe PAR (p) ou ÍMPAR (i)? ");
+    scanf(" %c", &escolha_par_impar);
+
+    printf("Digite um número de 0 a 5 (como se fosse mostrar os dedos da mão): ");
+    scanf("%d", &numero_usuario);
+
+    numero_computador = rand() % 6;
+
+    soma = numero_usuario + numero_computador;
+
+    printf("\nVocê escolheu o número %d.\nO computador escolheu o número %d.\n", numero_usuario, numero_computador);
+    printf("A soma dos dois números é %d.\n", soma);
+
+    // Verifica se o usuário venceu
+    if ((soma % 2 == 0 && escolha_par_impar == 'p') || (soma % 2 != 0 && escolha_par_impar == 'i')) {
+        printf("Parabéns! Você venceu!\n");
+    } else {
+        printf("O programa venceu!\n");
+    }
+
+    return 0;
+}
+
+
+
+
+
