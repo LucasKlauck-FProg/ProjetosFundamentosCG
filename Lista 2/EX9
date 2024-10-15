@@ -1,0 +1,21 @@
+/******************************************************************************
+Durante uma liquidação uma loja resolveu dar quinze por cento de desconto nas compras feitas pelos clientes.
+Faça um programa que leia o valor da compra e escreva o valor da compra com o desconto.  
+
+*******************************************************************************/
+#include <stdio.h>
+
+int main()
+{
+   float valor_compra, compra_com_desconto;
+   float desconto = 0.15;
+    
+    printf("Insira o valor da compra: R$ ");
+    scanf("%f", &valor_compra);
+    
+    compra_com_desconto = valor_compra - (valor_compra * desconto);
+    
+    printf("O valor da compra com desconto é: %2.f R$.", compra_com_desconto);
+
+    return 0;
+}
