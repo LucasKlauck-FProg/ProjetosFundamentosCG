@@ -1,0 +1,94 @@
+/******************************************************************************
+Corrida de Hamsters 
+*******************************************************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define TABULEIRO 12
+
+
+void limpar_tela() {
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear"); 
+#endif
+}
+
+
+int sortear_movimento() {
+    return (rand() % 5) + 1;
+}
+
+
+int atualizar_posicao(int posicao_atual, int movimento) {
+    switch (movimento) {
+        case 1: return posicao_atual + 1;
+        case 2: return posicao_atual + 2;
+        case 3: return posicao_atual;
+        case 4: return (posicao_atual - 1 < 0) ? 0 : posicao_atual - 1;
+        case 5: return (posicao_atual - 2 < 0) ? 0 : posicao_atual - 2;
+        default: return posicao_atual;
+    }
+}
+
+
+void imprimir_tabuleiro(int posicao_h1, int posicao_h2) {
+    printf("Hamster 1: ");
+    for (int i = 0; i < posicao_h1; i++) {
+        printf("* ");
+    }
+    printf("\n");
+
+    printf("Hamster 2: ");
+    for (int i = 0; i < posicao_h2; i++) {
+        printf("* ");
+    }
+    printf("\n");
+}
+
+int main() {
+
+    srand(time(NULL));
+
+
+    int posicao_h1 = 0, posicao_h2 = 0;
+    int movimento_h1, movimento_h2;
+    int turnos = 0;
+
+
+    while (posicao_h1 < TABULEIRO && posicao_h2 < TABULEIRO) {
+
+        movimento_h1 = sortear_movimento();
+        movimento_h2 = sortear_movimento();
+
+        posicao_h1 = atualizar_posicao(posicao_h1, movimento_h1);
+        posicao_h2 = atualizar_posicao(posicao_h2, movimento_h2);
+
+
+        limpar_tela();
+
+
+        printf("Turno %d\n", ++turnos);
+        imprimir_tabuleiro(posicao_h1, posicao_h2);
+
+
+        printf("\n Pressione ENTER para continuar...");
+        getchar();
+    }
+
+
+    if (posicao_h1 >= TABULEIRO && posicao_h2 >= TABULEIRO) {
+        printf("A corrida terminou em empate!\n");
+    } else if (posicao_h1 >= TABULEIRO) {
+        printf("Hamster 1 venceu a corrida!\n");
+    } else {
+        printf("Hamster 2 venceu a corrida!\n");
+    }
+
+    return 0;
+}
+
+
