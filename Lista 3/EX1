@@ -1,0 +1,28 @@
+/******************************************************************************
+Escreva um programa que leia dois números e efetue uma divisão, mas somente se o divisor for diferente de zero; 
+quando isto ocorrer, é mostrada uma mensagem de erro apropriada
+*******************************************************************************/
+#include <stdio.h>
+
+int main()
+{
+   float numerador, denominador, resultado;
+    
+    printf("Insira o numerador: ");
+    scanf("%f", &numerador);
+    
+    printf("Insira o denominador: ");
+    scanf("%f", &denominador);
+    
+    if (denominador != 0) {
+        resultado = numerador / denominador;
+        printf("O resultado da divisão é: %.2f\n", resultado);
+        
+        
+    } else {
+        printf("Erro: Divisão por zero não é permitida.\n");
+    }
+    
+    
+    return 0;
+}
