@@ -1,0 +1,25 @@
+/******************************************************************************
+Faça um algoritmo que permita ao aluno calcular a sua média final na Unisinos. 
+Leia a nota do grau A e do grau B e escreva o resultado na tela. 
+Lembrando que o Grau A vale 1/3 e o Grau B 2/3. 
+
+*******************************************************************************/
+
+#include <stdio.h>
+
+int main() {
+    float nota_grauA, nota_grauB, media_final;
+
+    printf("Insira a nota do grau A: ");
+    scanf("%f", &nota_grauA);
+    
+    printf("Insira a nota do grau B: ");
+    scanf("%f", &nota_grauB);
+
+    media_final = (nota_grauA * 1/3) + (nota_grauB * 2/3);
+    
+    printf("A média final é: %.2f\n", media_final);
+
+    return 0;
+}
+
