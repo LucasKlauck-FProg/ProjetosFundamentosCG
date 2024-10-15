@@ -1,0 +1,58 @@
+/******************************************************************************
+Para x alunos da Unisinos, ler as notas do grau A e grau B e calcular a média considerando o sistema de notas da Unisinos.
+Se o aluno estiver aprovado escrever “APROVADO”. Caso contrário, ler o grau C e pedir qual o grau que deve ser substituído
+(A ou B, maiúsculo ou minúsculo), recalcular a média. Se estiver aprovado, escrever “APROVADO”, caso contrário escrever “REPROVADO”.
+No final escrever a média geral dos alunos. 
+*******************************************************************************/
+#include <stdio.h>
+
+int main() {
+    int num_alunos;
+    float notaA, notaB, notaC, media, soma_medias = 0;
+    char substituir;
+    
+    printf("Quantos alunos deseja calcular as notas? ");
+    scanf("%d", &num_alunos);
+    
+    for (int i = 1; i <= num_alunos; i++) {
+        printf("\nAluno %d:\n", i);
+        
+        printf("Nota Grau A: ");
+        scanf("%f", &notaA);
+        printf("Nota Grau B: ");
+        scanf("%f", &notaB);
+        
+        media = (notaA * (1.0 / 3.0)) + (notaB * (2.0 / 3.0));
+        printf("Media: %.2f\n", media);
+        
+        if (media >= 6.0) {
+            printf("APROVADO\n");
+        } else {
+        
+            printf("REPROVADO. Digite a nota do Grau C: ");
+            scanf("%f", &notaC);
+            
+            printf("Qual Grau deseja substituir (A ou B)? ");
+            scanf(" %c", &substituir);
+
+            if (substituir == 'A' || substituir == 'a') {
+                media = (notaC * (1.0 / 3.0)) + (notaB * (2.0 / 3.0));
+            } else if (substituir == 'B' || substituir == 'b') {
+                media = (notaA * (1.0 / 3.0)) + (notaC * (2.0 / 3.0));
+            }
+            
+            printf("Nova Media: %.2f\n", media);
+            if (media >= 6.0) {
+                printf("APROVADO\n");
+            } else {
+                printf("REPROVADO\n");
+            }
+        }
+        
+        soma_medias += media;
+    }
+    
+    printf("\nMedia geral dos alunos: %.2f\n", soma_medias / num_alunos);
+
+    return 0;
+}
