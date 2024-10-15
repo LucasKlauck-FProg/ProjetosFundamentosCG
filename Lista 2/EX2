@@ -1,0 +1,25 @@
+/******************************************************************************
+Lista 2 ex2. Um turista deseja comprar dólares em uma casa de câmbio. 
+Escreva um programa que leia a cotação do dólar para real, 
+a quantidade de dólares que o turista deseja comprar, 
+e calcule o valor total em reais que ele precisará pagar.
+
+*******************************************************************************/
+
+#include <stdio.h>
+
+int main() {
+    float cotacao_dolar, quantidade_dolares, valor_em_reais;
+
+    printf("Digite a cotação do dólar em reais: ");
+    scanf("%f", &cotacao_dolar);
+
+    printf("Digite a quantidade de dólares que deseja comprar: ");
+    scanf("%f", &quantidade_dolares);
+
+    valor_em_reais = cotacao_dolar * quantidade_dolares;
+
+    printf("Você precisará pagar: R$ %.2f\n", valor_em_reais);
+
+    return 0;
+}
