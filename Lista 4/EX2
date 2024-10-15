@@ -1,0 +1,47 @@
+/******************************************************************************
+ Faça um algoritmo para: 
+Implemente um programa que sorteia um número de 1 a 10 e dá ao usuário 3 tentativas de acertá-lo.
+A cada tentativa errada, o programa informa se o número a adivinhar está abaixo ou acima. 
+*******************************************************************************/
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    int numero_sorteado, palpite, tentativas = 3;
+
+    srand(time(0));
+
+    numero_sorteado = rand() % 10 + 1;
+
+    printf("Tente adivinhar o número sorteado (entre 1 e 10). Voce tem 3 tentativas!\n");
+
+    for(int i = 0; i < tentativas; i++) {
+        printf("Tentativa %d: ", i + 1);
+        scanf("%d", &palpite);
+
+        if(palpite == numero_sorteado) {
+            printf("Parabens! Voce acertou o número %d!\n", numero_sorteado);
+            return 0;
+        } else if(palpite < numero_sorteado) {
+            printf("Errou! O número sorteado e maior.\n");
+        } else {
+            printf("Errou! O número sorteado e menor.\n");
+        }
+    }
+
+    printf("Suas tentativas acabaram! O número correto era o número %d.\n", numero_sorteado);
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
