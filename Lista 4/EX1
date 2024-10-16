@@ -1,0 +1,109 @@
+/******************************************************************************
+ Faça um algoritmo para:
+ a. Gerar e escrever todos os números inteiros do intervalo [0,100].
+ b. Gerar e escrever os números pares do intervalo [20,50].
+ c. Gerar e escrever os números inteiros do intervalo [25,70] em ordem decrescente.
+ d. Gerar e escrever os números ímpares do intervalo [25,95] em ordem decrescente.
+ e. Ler 15 números e escrever a soma e a média dos números lidos.
+ f. Ler 10 números inteiros e escrever a quantidade de números pares e a quantidade de números ímpares lidos.
+ g. Sortear 20 números inteiros entre -10 e 10 e imprimi-los acompanhados da mensagem “POSITIVO”, “NEGATIVO”,
+ ou “NULO”, conforme o caso. No final, imprimir a quantidade de números positivos e negativos lidos.
+ h. Ler n números e imprimir no final a soma dos números lidos (obs.: n é a quantidade de números que
+ deverão ser lidos e também deve ser lido do teclado) 
+*******************************************************************************/
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    int i, num, n, soma = 0, cont_par = 0, cont_impar = 0;
+    int positivos = 0, negativos = 0;
+
+    // Parte A: Gerar e escrever todos os números inteiros do intervalo [0,100].
+    printf("Parte A: Números inteiros de 0 a 100:\n");
+    for (i = 0; i <= 100; i++) {
+        printf("%d ", i);
+    }
+    printf("\n\n");
+
+    // Parte B: Gerar e escrever os números pares do intervalo [20,50].
+    printf("Parte B: Números pares de 20 a 50:\n");
+    for (i = 20; i <= 50; i += 2) {
+        printf("%d ", i);
+    }
+    printf("\n\n");
+
+    // Parte C: Gerar e escrever os números inteiros do intervalo [25,70] em ordem decrescente.
+    printf("Parte C: Números de 25 a 70 em ordem decrescente:\n");
+    for (i = 70; i >= 25; i--) {
+        printf("%d ", i);
+    }
+    printf("\n\n");
+
+    // Parte D: Gerar e escrever os números ímpares do intervalo [25,95] em ordem decrescente.
+    printf("Parte D: Números ímpares de 25 a 95 em ordem decrescente:\n");
+    for (i = 95; i >= 25; i--) {
+        if (i % 2 != 0) {
+            printf("%d ", i);
+        }
+    }
+    printf("\n\n");
+
+    // Parte E: Ler 15 números e escrever a soma e a média dos números lidos.
+    printf("Parte E: Ler 15 números, calcular a soma e a média:\n");
+    soma = 0;
+    for (i = 0; i < 15; i++) {
+        printf("Digite o número %d: ", i + 1);
+        scanf("%d", &num);
+        soma += num;
+    }
+    printf("Soma: %d\n", soma);
+    printf("Média: %.2f\n\n", (float)soma / 15);
+
+    // Parte F: Ler 10 números inteiros e escrever a quantidade de números pares e ímpares.
+    printf("Parte F: Ler 10 números e contar pares e ímpares:\n");
+    cont_par = 0;
+    cont_impar = 0;
+    for (i = 0; i < 10; i++) {
+        printf("Digite o número %d: ", i + 1);
+        scanf("%d", &num);
+        if (num % 2 == 0) {
+            cont_par++;
+        } else {
+            cont_impar++;
+        }
+    }
+    printf("Quantidade de números pares: %d\n", cont_par);
+    printf("Quantidade de números ímpares: %d\n\n", cont_impar);
+
+    // Parte G: Sortear 20 números entre -10 e 10 e imprimi-los com mensagens.
+    printf("Parte G: Sortear 20 números entre -10 e 10:\n");
+    srand(time(NULL));
+    for (i = 0; i < 20; i++) {
+        num = rand() % 21 - 10; // Gera números entre -10 e 10
+        if (num > 0) {
+            printf("%d POSITIVO\n", num);
+            positivos++;
+        } else if (num < 0) {
+            printf("%d NEGATIVO\n", num);
+            negativos++;
+        } else {
+            printf("%d NULO\n", num);
+        }
+    }
+    printf("Quantidade de números positivos: %d\n", positivos);
+    printf("Quantidade de números negativos: %d\n\n", negativos);
+
+    // Parte H: Ler n números e imprimir a soma.
+    printf("Parte H: Informe a quantidade de números a serem lidos: ");
+    scanf("%d", &n);
+    soma = 0;
+    for (i = 0; i < n; i++) {
+        printf("Digite o número %d: ", i + 1);
+        scanf("%d", &num);
+        soma += num;
+    }
+    printf("Soma dos números lidos: %d\n", soma);
+
+    return 0;
+}
