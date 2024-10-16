@@ -1,0 +1,76 @@
+/******************************************************************************
+Trabalho Grau A
+*******************************************************************************/
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    int opcao, populacaoInicial, taxaCrescimento, ciclos, i;
+    float populacaoAtual;
+
+    int condicao;
+    srand(time(NULL));
+    
+    do {
+        printf("1 - Nova Simulação\n");
+        printf("2 - Sair do Programa\n");
+        printf("Escolha uma opcao: ");
+        scanf("%d", &opcao);
+        
+        if (opcao == 1) {
+            // Entrada de dados
+            printf("Populacao inicial de bacterias: ");
+            scanf("%d", &populacaoInicial);
+            printf("Taxa de crescimento (%%): ");
+            scanf("%d", &taxaCrescimento);
+            printf("Numero de ciclos: ");
+            scanf("%d", &ciclos);
+            
+            populacaoAtual = populacaoInicial;
+            
+            for (i = 1; i <= ciclos; i++) {
+
+                populacaoAtual += (populacaoAtual * taxaCrescimento / 100);
+                condicao = rand() % 100;
+                
+                if (condicao < 5) {
+
+                    populacaoAtual *= 0.5;
+                    printf("Ciclo %d: Populacao = %.2f (condicao adversa: Radiacao Ultravioleta!)\n", i, populacaoAtual);
+                } else if (condicao < 15) {
+
+                    populacaoAtual *= 0.8;
+                    printf("Ciclo %d: Populacao = %.2f (condicao adversa: Excesso de Umidade!)\n", i, populacaoAtual);
+                } else if (condicao < 30) {
+
+                    populacaoAtual *= 0.75;
+                    printf("Ciclo %d: Populacao = %.2f (condicao adversa: Falta de Nutrientes!)\n", i, populacaoAtual);
+                } else if (condicao < 50) {
+
+                    populacaoAtual *= 0.7;
+                    printf("Ciclo %d: Populacao = %.2f (condicao adversa: Alta Temperatura!)\n", i, populacaoAtual);
+                } else if (condicao < 60) {
+
+                    populacaoAtual *= 1.2;
+                    printf("Ciclo %d: Populacao = %.2f (condicao favoravel!)\n", i, populacaoAtual);
+                } else {
+
+                    printf("Ciclo %d: Populacao = %.2f\n", i, populacaoAtual);
+                }
+                
+                if (populacaoAtual <= 0) {
+                    printf("A populacao de bacterias morreu no ciclo %d.\n", i);
+                    break;
+                }
+            }
+            
+            printf("Simulacao concluida. Populacao final: %.2f\n", populacaoAtual);
+        }
+        
+    } while (opcao != 2);
+    
+    printf("Programa encerrado.\n");
+    
+    return 0;
+}
